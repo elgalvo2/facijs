@@ -1,0 +1,45 @@
+.dialog_background{
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background-color: black;
+}
+
+.dialog {
+    position: absolute;
+    top: 10%;
+    background-color: #0f0f0f;
+    margin: 0px auto;
+    width: 60vw;
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
+    padding: 3%;
+    animation: in 400ms ease-in;
+    color: white;
+}
+
+.exit{
+    position: absolute;
+    top:0%;
+    left:0%;
+}
+
+dialog::backdrop {
+    opacity: .70;
+    background: black;
+}
+
+@keyframes in {
+    from {
+        transform: translateY(-300%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
