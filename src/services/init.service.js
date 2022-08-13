@@ -23,11 +23,9 @@ class InitService{
                 }else{
                     return Promise.reject(error)
                 }
-            }).catch(({response})=>{
-                const { status, data } = response;
-                const { success, error } = data;
-                console.info('init app response whit status code '+status)
-                return Promise.reject(error)
+            }).catch((err)=>{
+                console.info('init app response whit error '+err)
+                return Promise.reject(err)
             })
     }
     endApp(){
