@@ -7,18 +7,18 @@ class RequestService{
     }
     request(url,data,method){
         
-        return axios[method](url,data,this.header)
+
+            return axios[method](url,data,this.header)
             .then(({status,data})=>{
-                
                 console.info('init app request with status code '+status)
-                
-               
                 return data
-               
+                
             }).catch((err)=>{
                 console.info('init app response whit status code '+err)
-                return Promise.reject(err)
+                return Promise.reject(err.message)
             })
+        
+        
     }
 }
 
