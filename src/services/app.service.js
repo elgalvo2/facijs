@@ -22,9 +22,9 @@ class AppService {
         this.RequestHandler = new RequestService()
     }
 
-    async initNav() {
+     initNav() {
         let nav = []
-        let { pages } = await this.getUi()
+        let { pages } =  this.getUi()
         pages.forEach(element => {
             let item = { label: element, function: () => this.changeUi(element) }
             nav.push(item)
@@ -32,9 +32,9 @@ class AppService {
         return nav
     }
 
-    async initVisor() {
+    initVisor() {
         let visor = []
-        let { components, pages_layouts } = await this.getUi();
+        let { components, pages_layouts } = this.getUi();
 
         for (let [view, layout] of Object.entries(pages_layouts)) {
             let { fields, grid } = this.destructureLayout(layout)
@@ -55,12 +55,12 @@ class AppService {
         return visor
     }
 
-     async initModal() {
+      initModal() {
         let modal_components = []
-        let { internal_pages, components } =  await this.getUi()
+        let { internal_pages, components } =   this.getUi()
 
         for (let [view, data] of Object.entries(internal_pages)) {
-            if (data.type === 'modal-view') {
+            if (data.type === 'modal-view') { // only modals with type modal-view has regular components displayed on it
                 let { fields, grid } = this.destructureLayout(data.config.layout)
                 let componentData = fields.map(field => {
                     let context_items = (components[field].type === 'list') ? this.getContext()[data.config.store_name] : null
