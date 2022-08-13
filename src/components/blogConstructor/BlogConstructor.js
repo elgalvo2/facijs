@@ -1,3 +1,7 @@
+import { memo } from "react"
+
+export const MemoBlogConstructor = memo(BlogConstructor)
+
 export default function BlogConstructor({ app, config, name }) {
     let { item: helper_item } = app.getHelperItem()
     let { layout, title, blocks, inherit_item } = config

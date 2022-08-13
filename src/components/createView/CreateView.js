@@ -3,13 +3,17 @@
 
 import ActionModal from "../actionModal/ActionModal";
 import ConfirModal from "../confirmModal/ConfirmModal";
-import BlogConstructor from "../blogConstructor/BlogConstructor";
-import ListConstructor from "../listConstructor/ListConstructor";
-import FormConstructor from '../formConstructor/FormConstructor'
+import BlogConstructor,{MemoBlogConstructor} from "../blogConstructor/BlogConstructor";
+import ListConstructor,{MemoListContructor} from "../listConstructor/ListConstructor";
+import FormConstructor,{MemoFormConstructor} from '../formConstructor/FormConstructor'
 import ChartConstructor from "../chartConstructor/ChartConstructor";
+import { memo } from "react";
 
 
-export default function createView(view, app) {
+
+export default function CreateView(view,app) {
+
+
     let { name, components, grid } = view;
     let componentContainerStyle = (layout) => {
         return {
@@ -22,12 +26,12 @@ export default function createView(view, app) {
             alignItems: 'start',
         }
     }
-
+    
     return (
         <div style={componentContainerStyle(grid)} name={name}>
             {components.map((item, index) => (
                 (item.type === 'form') ?
-                    <FormConstructor
+                    <MemoFormConstructor
                         app={app}
                         config={item.config}
                         name={item.name}
@@ -35,7 +39,7 @@ export default function createView(view, app) {
                     />
                     :
                     (item.type === 'list') ?
-                        <ListConstructor
+                        <MemoListContructor
                             app={app}
                             config={item.config}
                             name={item.name}
@@ -49,7 +53,7 @@ export default function createView(view, app) {
                             />
                             :
                             (item.type === 'blog') ?
-                                <BlogConstructor
+                                <MemoBlogConstructor
                                     app={app}
                                     key={index}
                                     name={item.name}

@@ -46,7 +46,7 @@ const appSlice = createSlice({
             state.view = 'loading_page'
         })
             .addCase(init.fulfilled, (state, action) => {
-                console.log(action)
+                
                 state.loading = false;
                 state.message = 'Bienvenido';
                 state.context = action.payload.context;
@@ -86,7 +86,7 @@ const appSlice = createSlice({
 })
 
 function initApp(state, action){
-    console.log(action)
+    
     let {context,ui} = action.payload
     state.ui = ui
     state.context = context

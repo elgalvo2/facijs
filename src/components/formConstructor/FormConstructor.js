@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { memo } from "react";
 import { useCreateForm } from "../../hooks/componentConstructor";
 
 
@@ -66,7 +66,12 @@ const actionButtonStyle = () => {
     }
 }
 
+export const MemoFormConstructor = memo(FormConstructor)
+
 export default function FormConstructor({ config, name, app }) {
+
+    console.log('rendered form')
+
     let { layout, actions, fields, title } = config;
     let { grid } = app.destructureLayout(layout)
     let { initial_value, validations } = app.getComponent(name)

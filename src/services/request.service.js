@@ -6,7 +6,7 @@ class RequestService{
         this.header = ()=>header();
     }
     request(url,data,method){
-        console.log(method,data,url)
+        
         return axios[method](url,data,this.header)
             .then(({status,data})=>{
                 

@@ -1,16 +1,16 @@
 import axios from 'axios' 
 
 class InitService{
-    constructor(api_url,log_in_path,log_out_path,store,store_name,store_methods){
-        this.api_url = api_url;
-        this.sessionServePath = log_in_path;
+    constructor(log_out_path,store,store_methods){
+        this.api_url = process.env.REACT_APP_API_URL;
+        this.sessionServePath = process.env.REACT_APP_LOG_IN_PATH;
         this.sessionDestroyPath = log_out_path;
         this.store = store;
-        this.store_name = store_name;
-        this.store_methods = store_methods
+        this.store_name = 'appFeature';
+        this.store_methods = store_methods;
     }
     initApp(req){
-
+        console.log(this.api_url,this.sessionServePath)
         return axios.post(this.api_url+this.sessionServePath,req)
             .then(({status,data})=>{
                 console.info('init app response whit status code '+status)

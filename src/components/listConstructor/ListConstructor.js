@@ -1,8 +1,13 @@
+import { memo } from "react";
 import { useSelector } from "react-redux";
 import { useActionsConstructor,useControlList } from "../../hooks/componentConstructor";
 
 
+export const MemoListContructor = memo(ListConstructor)
+
 export default function ListConstructor({ config, name, app }) {
+    console.log('rendered list')
+    
 
     let { title, store_name, item_layout, item_action_layout, direction, controller } = config;
 
