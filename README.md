@@ -1,23 +1,24 @@
-reductor.js 
+*En desarrollo. Se desaconseja su uso en produccion*
 
-sintaxis
 
-Reductor utiliza un objecto llamado ui para renderizar en el dom la aplicacion deseada. 
-Las propiedades del objeto ui definen la forma en que la aplicacion se comporta, sus componentes y las interacciones entre estos componentes
+Faci.js 
 
-Sintaxis de reductor para la definicion del grid de los diferentes componentes:
+Sintaxis
+
+Faci utiliza un objecto llamado ui para renderizar en el dom la aplicacion deseada. 
+Las propiedades del objeto ui definen la forma en que la aplicacion se comporta, sus componentes y las interacciones entre estos componentes.
+
+Sintaxis de Faci para la definicion del grid de los diferentes componentes:
     Los componentes definidos en el objeto global ui, son renderizados y distribuidos segun lo especificado; para esto, reductor utiliza una sintaxis unica
-    para definir la forma en la que los componentes deben posicionarse dentro del componentes padre.
-        El motor interno de reductor utiliza *grid areas* para distribuir los componentes dentro del DOM, por esto, la sintaxis utilizada para describir los layout de los 
-        componentes es el siguiente:    
+    para definir la forma en la que los componentes deben posicionarse dentro de su componente padre.
+        El motor interno de reductor utiliza *grid areas* para distribuir los componentes dentro del DOM, por esto, la sintaxis utilizada para describir los layout de los componentes es el siguiente:    
             `` <------back tics: definen el inicio de un string de layout
-            "componente1 componente2"<------comillas dobles para definir una fila de componentes.. Los componentes dentro de una misma fila son separados por espacio simple (columnas)
-                                            no debe existir espacios entre los componentes y las comillas
+            "componente1 componente2"<------comillas dobles para definir una fila de componentes.. Los componentes dentro de una misma fila son separados por espacio simple (columnas) no debe existir espacios entre los componentes y las comillas
             "componente1"*"componente2"<-------Para definir una nueva fila de componentes es utilizado el operador producto (*) 
         Las reglas de css para la definicion de grid areas deben seguirse.
 
 
-propiedad nav:
+Propiedad nav:
 
 La propiedad nav del objeto ui hace referencia a las diferentes vistas o pestanas de la aplicacion. Esta propiedad
 Es un objecto que contiene dos propiedades: options y layout
